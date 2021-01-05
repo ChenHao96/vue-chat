@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import commons from "./commons"
+    // import commons from "./commons"
 
     export default {
         mounted() {
@@ -13,7 +13,7 @@
         },
         methods: {
             clickContainer() {
-                commons.fullScreen()
+                // commons.fullScreen()
             }
         }
     }
@@ -25,8 +25,8 @@
     @containerHeight: 100vh - @containerMarginTopBottom * 2;
 
     .container {
-        margin: 1vh auto;
         height: @containerHeight;
+        margin: @containerMarginTopBottom auto;
         width: calc(@containerHeight * (9 / 16));
     }
 
@@ -35,6 +35,20 @@
             margin: 0;
             width: 100vw;
             height: 100vh;
+        }
+
+        .container-page {
+            .head {
+                .img {
+                    @headImgWidth: 2.9rem;
+
+                    img {
+                        width: @headImgWidth;
+                        height: @headImgWidth;
+                        border-radius: @headImgWidth/2;
+                    }
+                }
+            }
         }
     }
 
@@ -48,6 +62,17 @@
             flex: 1;
             display: flex;
             background-color: bisque;
+
+            .img {
+                flex: 1;
+                @headImgWidth: 4rem;
+
+                img {
+                    width: @headImgWidth;
+                    height: @headImgWidth;
+                    border-radius: @headImgWidth/2;
+                }
+            }
         }
 
         .foot {

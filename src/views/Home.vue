@@ -22,10 +22,10 @@
             <div class="btn iconfont message activity">
                 <div class="btnText">&#xe7ea;</div>
             </div>
-            <div class="btn iconfont friend">
+            <div class="btn iconfont friend" @click="$router.push({path:'/friends'})">
                 <div class="btnText">&#xe815;</div>
             </div>
-            <div class="btn iconfont my">
+            <div class="btn iconfont logs" @click="$router.push({path:'/logs'})">
                 <div class="btnText">&#xe771;</div>
             </div>
         </div>
@@ -56,36 +56,12 @@
                 flex: 3.75;
                 display: flex;
                 flex-direction: column;
+
                 .nickname, .status {
                     flex: 1;
                     display: flex;
                     user-select: none;
                     align-items: center;
-                }
-            }
-
-            .img {
-                flex: 1;
-                @headImgWidth: 4rem;
-                img {
-                    width: @headImgWidth;
-                    height: @headImgWidth;
-                    border-radius: @headImgWidth/2;
-                }
-            }
-        }
-    }
-
-    @media screen and (max-width: 415px) {
-        .home {
-            .head {
-                .img {
-                    @headImgWidth: 2.9rem;
-                    img {
-                        width: @headImgWidth;
-                        height: @headImgWidth;
-                        border-radius: @headImgWidth/2;
-                    }
                 }
             }
         }
