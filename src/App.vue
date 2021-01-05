@@ -1,15 +1,20 @@
 <template>
-    <div class="container">
-        <keep-alive>
-            <router-view/>
-        </keep-alive>
+    <div class="container" @click="clickContainer">
+        <router-view/>
     </div>
 </template>
 
 <script>
+    import commons from "./commons"
+
     export default {
         mounted() {
-            document.getElementById("firstLoading").remove()
+            document.getElementById("firstLoading").style.display = "none"
+        },
+        methods: {
+            clickContainer() {
+                commons.fullScreen()
+            }
         }
     }
 </script>
@@ -49,6 +54,10 @@
             flex: 1;
             display: flex;
             background-color: bisque;
+
+            .activity {
+                background-color: antiquewhite;
+            }
         }
 
         .btn {

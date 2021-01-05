@@ -103,5 +103,28 @@ export default {
             localStorage.setItem(DEVICE_REQUEST_HEAD_KEY, deviceId)
         }
         return deviceId
+    },
+    fullScreen: () => {
+        const element = document.documentElement;
+        if (element.requestFullscreen) {
+            element.requestFullscreen()
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen()
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen()
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen()
+        }
+    },
+    exitFullscreen: () => {
+        if (document.exitFullscreen) {
+            document.exitFullscreen()
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen()
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen()
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen()
+        }
     }
 }
