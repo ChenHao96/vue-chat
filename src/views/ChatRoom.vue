@@ -1,17 +1,17 @@
 <template>
-    <div class="chat-room ">
+    <div class="chat-room container-page">
         <div class="head">
-            <div class="back iconfont">
-                <div class="btn">&#xe84f;</div>
+            <div class="btn back iconfont" @click="back">
+                <div class="btnText">&#xe84f;</div>
             </div>
             <div class="title">
 
             </div>
-            <div class="plus">
-
+            <div class="btn plus iconfont">
+                <div class="btnText">&#xe80c;</div>
             </div>
-            <div class="menu">
-
+            <div class="btn menu iconfont">
+                <div class="btnText">&#xe86b;</div>
             </div>
         </div>
         <div class="body">
@@ -24,52 +24,22 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        methods: {
+            back() {
+                this.$router.go(-1)
+            }
+        }
+    }
 </script>
 
 <style lang="less" scoped>
     .chat-room {
-        width: inherit;
-        height: inherit;
-        display: flex;
-        flex-direction: column;
-
         .head {
-            flex: 1;
-            display: flex;
-
-            background-color: antiquewhite;
-
-            .plus, .menu {
-                flex: 1;
-                background-color: rebeccapurple;
-            }
-
-            .back {
-                flex: 1;
-                cursor: pointer;
-                background-color: rebeccapurple;
-                .btn {
-                    color: white;
-                    text-align: center;
-                    font-size: 50%;
-                }
-            }
-
             .title {
                 text-align: center;
                 flex: 3.75;
             }
-        }
-
-        .foot {
-            flex: 1;
-            background-color: cornsilk;
-        }
-
-        .body {
-            flex: 10;
-            background-color: bisque;
         }
     }
 </style>

@@ -32,4 +32,44 @@
             height: 100vh;
         }
     }
+
+    .container-page {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+
+        .head {
+            flex: 1;
+            display: flex;
+            background-color: bisque;
+        }
+
+        .foot {
+            flex: 1;
+            display: flex;
+            background-color: bisque;
+        }
+
+        .btn {
+            flex: 1;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btnText {
+            flex: 1;
+            color: white;
+            font-size: 1.5rem;
+            user-select: none;
+            text-align: center;
+        }
+
+        .body {
+            flex: 10;
+            background-color: cornsilk;
+        }
+    }
 </style>
