@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('iconfont.woff2') format('woff2');
+}
+
+.iconfont {
+    font-style: normal;
+    font-family: "iconfont" !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
