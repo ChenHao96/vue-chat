@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    // import commons from "./commons"
+    import commons from "./commons"
 
     export default {
         mounted() {
@@ -13,7 +13,7 @@
         },
         methods: {
             clickContainer() {
-                // commons.fullScreen()
+                commons.fullScreen()
             }
         }
     }
@@ -21,41 +21,18 @@
 
 <style lang="less">
 
-    @containerMarginTopBottom: 1vh;
-    @containerHeight: 100vh - @containerMarginTopBottom * 2;
+    @import "assets/public";
 
     .container {
         height: @containerHeight;
-        margin: @containerMarginTopBottom auto;
+        margin: @containerMargin;
         width: calc(@containerHeight * (9 / 16));
     }
 
-    @media screen and (max-width: 415px) {
-        .container {
-            margin: 0;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        .container-page {
-            .head {
-                .img {
-                    @headImgWidth: 2.9rem;
-
-                    img {
-                        width: @headImgWidth;
-                        height: @headImgWidth;
-                        border-radius: @headImgWidth/2;
-                    }
-                }
-            }
-        }
-    }
-
     .container-page {
+        display: flex;
         width: inherit;
         height: inherit;
-        display: flex;
         flex-direction: column;
 
         .head {
@@ -65,12 +42,26 @@
 
             .img {
                 flex: 1;
-                @headImgWidth: 4rem;
 
                 img {
-                    width: @headImgWidth;
-                    height: @headImgWidth;
-                    border-radius: @headImgWidth/2;
+                    width: @headImgPCWidth;
+                    height: @headImgPCWidth;
+                    border-radius: @headImgPCWidth/2;
+                }
+            }
+
+            .title, .titleText {
+                user-select: none;
+            }
+
+            .titleText {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .text {
+                    color: @textColor;
+                    font-size: @titleFontSize;
                 }
             }
         }
@@ -95,15 +86,35 @@
 
         .btnText {
             flex: 1;
-            color: white;
-            font-size: 1.5rem;
             user-select: none;
             text-align: center;
+            color: @textColor;
+            font-size: @iconSize;
         }
 
         .body {
             flex: 10;
             background-color: cornsilk;
+        }
+    }
+
+    @media screen and (max-width: 415px) {
+        .container {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .container-page {
+            .head {
+                .img {
+                    img {
+                        width: @headImgWidth;
+                        height: @headImgWidth;
+                        border-radius: @headImgWidth/2;
+                    }
+                }
+            }
         }
     }
 </style>

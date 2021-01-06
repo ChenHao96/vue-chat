@@ -40,17 +40,22 @@
         },
         methods: {
             userInfo() {
-                this.$router.push({path: "/userInfo"})
+                this.$router.push({path: "/userInfoSetting"})
             }
         }
     }
 </script>
 
 <style lang="less" scoped>
+    @import "../assets/public";
     .tmp {
         .head {
             .title {
-                flex: 3.75;
+                flex: 3.228;
+            }
+
+            .menu, .plus, .title, .img {
+                margin: @headItemMargin;
             }
         }
     }

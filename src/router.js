@@ -20,11 +20,25 @@ const routes = [
         component: () => import('./views/Friends')
     },
     {
+        path: '/logs',
+        meta: {
+            title: '动态'
+        },
+        component: () => import('./views/Logs')
+    },
+    {
         path: '/chatRoom',
         meta: {
             title: '聊天窗口'
         },
-        component: () => import('./views/ChatRoom')
+        component: () => import('./views/second/ChatRoom')
+    },
+    {
+        path: '/userInfoSetting',
+        meta: {
+            title: '设置'
+        },
+        component: () => import('./views/second/UserInfoSetting')
     },
     {
         path: '/404',

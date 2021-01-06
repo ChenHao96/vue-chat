@@ -6,9 +6,11 @@
             </div>
             <div class="title">
                 <div class="nickname">{{nickname}}</div>
-                <div class="status">{{status}}</div>
+                <div class="status" @click="clickStatus">
+                    {{formatStatus(status)}}
+                </div>
             </div>
-            <div class="btn camera iconfont">
+            <div class="btn camera iconfont" @click="clickCamera">
                 <div class="btnText">&#xe853;</div>
             </div>
             <div class="btn plus iconfont">
@@ -43,26 +45,51 @@
         },
         methods: {
             userInfo() {
-                this.$router.push({path: "/userInfo"})
+                this.$router.push({path: "/userInfoSetting"})
+            },
+            clickStatus() {
+                console.log(this.status)
+            },
+            clickCamera() {
+
+            },
+            formatStatus(value) {
+                switch (value) {
+                    case 1:
+                        return "游戏中..."
+                    default:
+                        return "在线"
+                }
             }
         }
     }
 </script>
 
 <style lang="less" scoped>
+    @import "../assets/public";
+
     .home {
         .head {
             .title {
-                flex: 3.75;
+                flex: 3.228;
                 display: flex;
                 flex-direction: column;
+
+                .status {
+                    cursor: pointer;
+                }
 
                 .nickname, .status {
                     flex: 1;
                     display: flex;
-                    user-select: none;
+                    color: @textColor;
                     align-items: center;
+                    font-size: @textFontSize;
                 }
+            }
+
+            .camera, .plus, .title, .img {
+                margin: @headItemMargin;
             }
         }
     }

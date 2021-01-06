@@ -7,8 +7,8 @@
             <div class="title titleText">
                 <div class="text">{{title}}</div>
             </div>
-            <div class="btn plus iconfont">
-                <div class="btnText">&#xe829;</div>
+            <div class="btn setting iconfont">
+                <div class="btnText">&#xe7e6;</div>
             </div>
         </div>
         <div class="body">
@@ -18,10 +18,10 @@
             <div class="btn iconfont message" @click="$router.push({path:'/'})">
                 <div class="btnText">&#xe7ea;</div>
             </div>
-            <div class="btn iconfont friend activity">
+            <div class="btn iconfont friend" @click="$router.push({path:'/friends'})">
                 <div class="btnText">&#xe815;</div>
             </div>
-            <div class="btn iconfont logs" @click="$router.push({path:'/logs'})">
+            <div class="btn iconfont logs activity">
                 <div class="btnText">&#xe771;</div>
             </div>
         </div>
@@ -32,7 +32,7 @@
     export default {
         data() {
             return {
-                title:'联系人',
+                title:'动态',
                 imgUrl: require("../assets/img/head.jpeg")
             }
         },
@@ -49,14 +49,13 @@
 
 <style lang="less" scoped>
     @import "../assets/public";
-
     .tmp {
         .head {
             .title {
                 flex: 4.358;
             }
 
-            .plus, .title, .img {
+            .setting, .title, .img {
                 margin: @headItemMargin;
             }
         }
