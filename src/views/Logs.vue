@@ -59,31 +59,35 @@
         data() {
             return {
                 title: '',
-                imgUrl: require("../assets/img/head.jpeg"),
-                items: {
-                    "group1": [
-                        {
-                            src: require("../assets/img/head.jpeg"),
-                            text: '134123412341234'
-                        }, {
-                            src: require("../assets/img/head.jpeg"),
-                            text: '134123412341234'
-                        }, {
-                            src: require("../assets/img/head.jpeg"),
-                            text: '134123412341234'
-                        }
-                    ],
-                    "group2": [
-                        {
-                            src: require("../assets/img/head.jpeg"),
-                            text: '134123412341234'
-                        }
-                    ]
-                }
+                items: {},
+                imgUrl: ''
             }
         },
         activated() {
             this.title = document.title
+
+            // TODO:
+            const img = this.imgUrl = require("../assets/img/head.jpeg")
+            this.items = {
+                "group1": [
+                    {
+                        src: img,
+                        text: '134123412341234'
+                    }, {
+                        src: img,
+                        text: '134123412341234'
+                    }, {
+                        src: img,
+                        text: '134123412341234'
+                    }
+                ],
+                "group2": [
+                    {
+                        src: img,
+                        text: '134123412341234'
+                    }
+                ]
+            }
         },
         methods: {
             userInfo() {
@@ -92,7 +96,7 @@
             clickSetting() {
                 this.$router.push({path: "/logsSetting"})
             },
-            clickSearch(){
+            clickSearch() {
                 this.$router.push({path: "/search"})
             }
         }

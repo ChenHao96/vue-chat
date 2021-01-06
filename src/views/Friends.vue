@@ -55,17 +55,19 @@
         data() {
             return {
                 title: '',
-                imgUrl: require("../assets/img/head.jpeg")
+                imgUrl: ''
             }
         },
         activated() {
             this.title = document.title
+            // TODO:
+            this.imgUrl = require("../assets/img/head.jpeg")
         },
         methods: {
             userInfo() {
                 this.$router.push({path: "/userInfoSetting"})
             },
-            clickSearch(){
+            clickSearch() {
                 this.$router.push({path: "/search"})
             }
         }

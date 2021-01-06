@@ -50,22 +50,30 @@
     export default {
         data() {
             return {
-                imgUrl: require("../assets/img/head.jpeg"),
-                nickname: 'abc123',
+                imgUrl: '',
+                nickname: '',
                 status: 0
             }
+        },
+        activated() {
+            // TODO:
+            this.imgUrl = require("../assets/img/head.jpeg")
+            this.nickname = 'abc123'
+            this.status = 0
         },
         methods: {
             userInfo() {
                 this.$router.push({path: "/userInfoSetting"})
             },
-            clickSearch(){
+            clickSearch() {
                 this.$router.push({path: "/search"})
             },
             clickStatus() {
+                // TODO:
                 console.log(this.status)
             },
             clickCamera() {
+                // TODO:
                 console.log("click camera...")
             },
             formatStatus(value) {

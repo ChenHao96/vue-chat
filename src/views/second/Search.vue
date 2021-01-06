@@ -3,7 +3,8 @@
         <div class="head">
             <form class="input" @submit.prevent="submitSearch">
                 <label for="search"></label>
-                <input class="search-input" id="search" v-model="formData.content" placeholder="搜索"/>
+                <input class="search-input" id="search" ref="search"
+                       v-model="formData.content" placeholder="搜索"/>
             </form>
             <div class="btn" @click="back">
                 <div class="btnText">取消</div>
@@ -24,12 +25,14 @@
         },
         activated() {
             this.formData.content = ''
+            this.$refs.search.focus()
         },
         methods: {
             back() {
                 this.$router.back()
             },
             submitSearch() {
+                // TODO:
                 console.log(this.formData)
             }
         }
@@ -49,10 +52,10 @@
 
                 .search-input {
                     flex: 1;
+                    border-style: none;
                     padding: 12px 25px;
-                    border-radius: 15px;
+                    border-radius: 25px;
                     font-size: @textFontSize;
-                    border: 1px silver solid;
                 }
             }
         }
