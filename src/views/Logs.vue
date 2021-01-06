@@ -13,7 +13,7 @@
         </div>
         <div class="body">
             <div class="list-group">
-                <div class="list">
+                <div class="list" @click="clickSearch">
                     <div class="search">
                         <div class="iconfont">
                             <div class="icon">&#xe82e;</div>
@@ -91,6 +91,9 @@
             },
             clickSetting() {
                 this.$router.push({path: "/logsSetting"})
+            },
+            clickSearch(){
+                this.$router.push({path: "/search"})
             }
         }
     }

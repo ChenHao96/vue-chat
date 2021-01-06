@@ -31,6 +31,10 @@ body,iframe {
     animation: loadit 4s linear infinite;
 }
 
+label{
+    display: none;
+}
+
 @keyframes loadit {
     55% {
         border-radius: 100%;

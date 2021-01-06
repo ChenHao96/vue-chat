@@ -21,7 +21,7 @@
         </div>
         <div class="body">
             <div class="list-group">
-                <div class="list">
+                <div class="list" @click="clickSearch">
                     <div class="search">
                         <div class="iconfont">
                             <div class="icon">&#xe82e;</div>
@@ -59,6 +59,9 @@
             userInfo() {
                 this.$router.push({path: "/userInfoSetting"})
             },
+            clickSearch(){
+                this.$router.push({path: "/search"})
+            },
             clickStatus() {
                 console.log(this.status)
             },
@@ -83,7 +86,7 @@
     .home {
         .head {
             .title {
-                flex: 3.028;
+                flex: 3.02;
                 display: flex;
                 flex-direction: column;
 

@@ -34,6 +34,13 @@ const routes = [
         component: () => import('./views/Logs')
     },
     {
+        path: '/search',
+        meta: {
+            title: '搜索'
+        },
+        component: () => import('./views/second/Search')
+    },
+    {
         path: '/chatRoom',
         meta: {
             title: '聊天窗口'
