@@ -110,13 +110,13 @@
         .body {
             .list-group {
                 &:first-child {
-                    background-color: cornsilk;
+                    background-color: @bodyBackgroundColor;
 
                     .list {
-                        background-color: cornsilk;
+                        background-color: @bodyBackgroundColor;
 
                         .search {
-                            background-color: white;
+                            background-color: @listBackgroundColor;
                         }
                     }
                 }

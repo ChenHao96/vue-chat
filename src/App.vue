@@ -43,7 +43,7 @@
             flex: 1;
             display: flex;
             user-select: none;
-            background-color: bisque;
+            background-color: @headBackgroundColor;
 
             .img {
                 flex: 1;
@@ -71,10 +71,10 @@
             flex: 1;
             display: flex;
             user-select: none;
-            background-color: bisque;
+            background-color: @headBackgroundColor;
 
             .activity {
-                background-color: antiquewhite;
+                background-color: @footActivityBackgroundColor;
             }
         }
 
@@ -100,11 +100,11 @@
             overflow: hidden;
             overflow-y: auto;
             flex-direction: column;
-            background-color: cornsilk;
+            background-color: @bodyBackgroundColor;
 
             .list-group {
                 margin-bottom: .8rem;
-                background-color: white;
+                background-color: @listBackgroundColor;
 
                 &:last-child {
                     margin-bottom: 0;
@@ -115,9 +115,9 @@
                 flex: 1;
                 display: flex;
                 cursor: pointer;
-                background-color: white;
                 height: @listLineHeight;
                 line-height: @listLineHeight;
+                background-color: @listBackgroundColor;
 
                 .search{
                     flex: 1;
@@ -126,7 +126,7 @@
                     border-radius: 15px;
                     align-items: center;
                     justify-content: center;
-                    background-color: cornsilk;
+                    background-color: @bodyBackgroundColor;
                 }
 
                 .text {
