@@ -6,6 +6,13 @@ Vue.use(Router)
 
 const routes = [
     {
+        path: '/404',
+        meta: {
+            title: '页面丢失了'
+        },
+        component: () => import('./views/tmp')
+    },
+    {
         path: '/',
         meta: {
             title: '消息'
@@ -41,11 +48,11 @@ const routes = [
         component: () => import('./views/second/UserInfoSetting')
     },
     {
-        path: '/404',
+        path: '/logsSetting',
         meta: {
-            title: '页面丢失了'
+            title: '设置'
         },
-        component: () => import('./views/tmp')
+        component: () => import('./views/second/LogsSetting')
     }
 ]
 

@@ -38,7 +38,7 @@
         .head {
             .title {
                 text-align: center;
-                flex: 3.75;
+                flex: 3.028;
             }
         }
     }

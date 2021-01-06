@@ -71,7 +71,7 @@
     .home {
         .head {
             .title {
-                flex: 3.228;
+                flex: 3.028;
                 display: flex;
                 flex-direction: column;
 

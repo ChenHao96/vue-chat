@@ -5,7 +5,7 @@
                 <div class="btnText">&#xe84f;</div>
             </div>
             <div class="title titleText">
-                <div class="text">设置</div>
+                <div class="text">动态页设置</div>
             </div>
             <div class="btn">
                 <div class="btnText"></div>

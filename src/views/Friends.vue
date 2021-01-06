@@ -53,7 +53,7 @@
     .tmp {
         .head {
             .title {
-                flex: 4.358;
+                flex: 4.208;
             }
 
             .plus, .title, .img {

@@ -7,7 +7,7 @@
             <div class="title titleText">
                 <div class="text">{{title}}</div>
             </div>
-            <div class="btn setting iconfont">
+            <div class="btn setting iconfont" @click="clickSetting">
                 <div class="btnText">&#xe7e6;</div>
             </div>
         </div>
@@ -42,6 +42,9 @@
         methods: {
             userInfo() {
                 this.$router.push({path: "/userInfoSetting"})
+            },
+            clickSetting() {
+                this.$router.push({path: "/logsSetting"})
             }
         }
     }
@@ -52,7 +55,7 @@
     .tmp {
         .head {
             .title {
-                flex: 4.358;
+                flex: 4.208;
             }
 
             .setting, .title, .img {
