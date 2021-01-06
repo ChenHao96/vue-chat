@@ -15,7 +15,7 @@
         },
         methods: {
             clickContainer() {
-                if (commons.deviceAndroid() || commons.deviceIOS()) {
+                if (commons.deviceMobile()) {
                     commons.fullScreen()
                 }
             }
@@ -112,7 +112,7 @@
             }
         }
 
-        .list{
+        .list {
             flex: 1;
             display: flex;
             cursor: pointer;
@@ -120,7 +120,7 @@
             line-height: @listLineHeight;
             background-color: @listBackgroundColor;
 
-            .search{
+            .search {
                 flex: 1;
                 display: flex;
                 margin: 7.5px 15px;

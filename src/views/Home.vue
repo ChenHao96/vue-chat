@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="body">
-            <div class="list-group">
+            <div :class="'list-group'+(topItems.length>0?' top-message-list':'')">
                 <div class="list" @click="clickSearch">
                     <div class="search">
                         <div class="iconfont">
@@ -28,6 +28,22 @@
                             &nbsp;
                             <div class="test">搜索</div>
                         </div>
+                    </div>
+                </div>
+                <div class="list" v-for="item in topItems">
+                    <div class="img item"><img :src="item.src" alt="图标"/></div>
+                    <div class="text item">{{item.text}}</div>
+                    <div class="iconfont item">
+                        <div class="icon">&#xe84e;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="list" v-for="item in items">
+                    <div class="img item"><img :src="item.src" alt="图标"/></div>
+                    <div class="text item">{{item.text}}</div>
+                    <div class="iconfont item">
+                        <div class="icon">&#xe84e;</div>
                     </div>
                 </div>
             </div>
@@ -52,14 +68,28 @@
             return {
                 imgUrl: '',
                 nickname: '',
-                status: 0
+                status: 0,
+                topItems: [],
+                items: []
             }
         },
         activated() {
             // TODO:
-            this.imgUrl = require("../assets/img/head.jpeg")
+            const img = this.imgUrl = require("../assets/img/head.jpeg")
             this.nickname = 'abc123'
             this.status = 0
+            this.topItems = [
+                {
+                    src: img,
+                    text: 'abc123'
+                }
+            ]
+            this.items = [
+                {
+                    src: img,
+                    text: '134123412341234'
+                }
+            ]
         },
         methods: {
             userInfo() {
@@ -118,17 +148,21 @@
             }
         }
 
-        .body {
-            .list-group {
-                &:first-child {
+        .body{
+            .list-group{
+                margin-bottom: 0;
+            }
+        }
+
+        .top-message-list {
+            &:first-child {
+                background-color: @bodyBackgroundColor;
+
+                .list {
                     background-color: @bodyBackgroundColor;
 
-                    .list {
-                        background-color: @bodyBackgroundColor;
-
-                        .search {
-                            background-color: @listBackgroundColor;
-                        }
+                    .search {
+                        background-color: @listBackgroundColor;
                     }
                 }
             }

@@ -135,5 +135,8 @@ export default {
     },
     deviceAndroid() {
         return /Android|Adr/i.test(window.navigator.userAgent)
+    },
+    deviceMobile(){
+        return /Mobile/i.test(window.navigator.userAgent)
     }
 }
