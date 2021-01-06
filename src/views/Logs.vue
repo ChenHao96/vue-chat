@@ -17,6 +17,51 @@
                 <div class="list">2</div>
                 <div class="list">3</div>
                 <div class="list">4</div>
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+            </div>
+            <div class="list-group">
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+            </div>
+            <div class="list-group">
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+            </div>
+            <div class="list-group">
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+            </div>
+
+            <div class="list-group">
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
             </div>
         </div>
         <div class="foot">
@@ -67,6 +112,15 @@
             .setting, .title, .img {
                 margin: @headItemMargin;
             }
+        }
+    }
+
+    .list-group {
+        margin-bottom: 1rem;
+        background-color: white;
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 </style>

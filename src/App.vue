@@ -98,6 +98,10 @@
 
         .body {
             flex: 10;
+            display: flex;
+            overflow: hidden;
+            overflow-y: auto;
+            flex-direction: column;
             background-color: cornsilk;
         }
     }
