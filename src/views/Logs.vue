@@ -12,56 +12,14 @@
             </div>
         </div>
         <div class="body">
-            <div class="list-group">
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-            </div>
-            <div class="list-group">
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-            </div>
-            <div class="list-group">
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-            </div>
-            <div class="list-group">
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-            </div>
-
-            <div class="list-group">
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
-                <div class="list">1</div>
-                <div class="list">2</div>
-                <div class="list">3</div>
-                <div class="list">4</div>
+            <div class="list-group" v-for="(item,key) in items">
+                <div class="list" v-for="ii in item">
+                    <div class="img item"><img :src="ii.src" alt="图标"/></div>
+                    <div class="text item">{{ii.text}}</div>
+                    <div class="iconfont item">
+                        <div class="icon">&#xe84e;</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="foot">
@@ -83,7 +41,27 @@
         data() {
             return {
                 title: '动态',
-                imgUrl: require("../assets/img/head.jpeg")
+                imgUrl: require("../assets/img/head.jpeg"),
+                items: {
+                    "group1": [
+                        {
+                            src: require("../assets/img/head.jpeg"),
+                            text: '134123412341234'
+                        }, {
+                            src: require("../assets/img/head.jpeg"),
+                            text: '134123412341234'
+                        }, {
+                            src: require("../assets/img/head.jpeg"),
+                            text: '134123412341234'
+                        }
+                    ],
+                    "group2": [
+                        {
+                            src: require("../assets/img/head.jpeg"),
+                            text: '134123412341234'
+                        }
+                    ]
+                }
             }
         },
         activated() {
@@ -113,14 +91,44 @@
                 margin: @headItemMargin;
             }
         }
-    }
 
-    .list-group {
-        margin-bottom: 1rem;
-        background-color: white;
+        .body {
+            .list {
+                cursor: pointer;
+                display: flex;
 
-        &:last-child {
-            margin-bottom: 0;
+                .text {
+                    flex: 11.8;
+                    display: flex;
+                    align-items: center;
+                    font-size: @textFontSize;
+                }
+
+                .item {
+                    padding: 8px;
+
+                    &:first-child {
+                        margin-left: 10px;
+                    }
+                }
+
+                .img {
+                    flex: 1;
+
+                    img {
+                        width: @listItemImgHeight;
+                        height: @listItemImgHeight;
+                        border-radius: @listItemImgHeight/4;
+                    }
+                }
+
+                .iconfont {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
         }
     }
 </style>

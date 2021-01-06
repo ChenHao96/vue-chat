@@ -103,6 +103,22 @@
             overflow-y: auto;
             flex-direction: column;
             background-color: cornsilk;
+
+            .list-group {
+                margin-bottom: .8rem;
+                background-color: white;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .list{
+                flex: 1;
+                background-color: white;
+                height: @listLineHeight;
+                line-height: @listLineHeight;
+            }
         }
     }
 
