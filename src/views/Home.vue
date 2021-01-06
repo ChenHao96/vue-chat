@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="list" v-for="item in topItems" @click="clickItem">
+                <div class="list" v-for="item in topItems" @click="clickItem(item)">
                     <div class="img item"><img :src="item.src" alt="图标"/></div>
                     <div class="text item">{{item.text}}</div>
                     <div class="iconfont item">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="list-group">
-                <div class="list" v-for="item in items" @click="clickItem">
+                <div class="list" v-for="item in items" @click="clickItem(item)">
                     <div class="img item"><img :src="item.src" alt="图标"/></div>
                     <div class="text item">{{item.text}}</div>
                     <div class="iconfont item">
@@ -98,7 +98,9 @@
             clickSearch() {
                 this.$router.push({path: "/search"})
             },
-            clickItem(){
+            clickItem(item) {
+                // TODO:
+                console.log(item)
                 this.$router.push({path: "/chatRoom"})
             },
             clickStatus() {
@@ -151,8 +153,8 @@
             }
         }
 
-        .body{
-            .list-group{
+        .body {
+            .list-group {
                 margin-bottom: 0;
             }
         }
