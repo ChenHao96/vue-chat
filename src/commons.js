@@ -126,5 +126,14 @@ export default {
         } else if (document.webkitExitFullscreen) {
             document.webkitExitFullscreen()
         }
+    },
+    deviceWechat() {
+        return /MicroMessenger/ig.test(window.navigator.userAgent)
+    },
+    deviceIOS() {
+        return /iphone|ipod|ipad|ios/i.test(window.navigator.userAgent.toLowerCase())
+    },
+    deviceAndroid() {
+        return /Android|Adr/i.test(window.navigator.userAgent)
     }
 }

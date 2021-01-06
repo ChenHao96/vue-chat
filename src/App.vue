@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    //import commons from "./commons"
+    import commons from "./commons"
 
     export default {
         mounted() {
@@ -13,7 +13,9 @@
         },
         methods: {
             clickContainer() {
-                //commons.fullScreen()
+                if (commons.deviceAndroid() || commons.deviceIOS()) {
+                    commons.fullScreen()
+                }
             }
         }
     }
