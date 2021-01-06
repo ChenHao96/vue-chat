@@ -7,7 +7,7 @@
             <div class="title titleText">
                 <div class="text">动态页设置</div>
             </div>
-            <div class="btn">
+            <div class="btn" style="cursor: auto;">
                 <div class="btnText"></div>
             </div>
         </div>
