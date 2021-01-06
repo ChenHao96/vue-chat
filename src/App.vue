@@ -121,9 +121,44 @@
 
                 .search{
                     flex: 1;
+                    display: flex;
                     margin: 7.5px 15px;
                     border-radius: 15px;
+                    align-items: center;
+                    justify-content: center;
                     background-color: cornsilk;
+                }
+
+                .text {
+                    flex: 11.8;
+                    display: flex;
+                    align-items: center;
+                    font-size: @textFontSize;
+                }
+
+                .item {
+                    padding: 8px;
+
+                    &:first-child {
+                        margin-left: 10px;
+                    }
+                }
+
+                .img {
+                    flex: 1;
+
+                    img {
+                        width: @listItemImgHeight;
+                        height: @listItemImgHeight;
+                        border-radius: @listItemImgHeight/4;
+                    }
+                }
+
+                .iconfont {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
         }

@@ -17,6 +17,7 @@
                     <div class="search">
                         <div class="iconfont">
                             <div class="icon">&#xe82e;</div>
+                            &nbsp;
                             <div class="test">搜索</div>
                         </div>
                     </div>
@@ -106,42 +107,6 @@
 
             .setting, .title, .img {
                 margin: @headItemMargin;
-            }
-        }
-
-        .body {
-            .list {
-                .text {
-                    flex: 11.8;
-                    display: flex;
-                    align-items: center;
-                    font-size: @textFontSize;
-                }
-
-                .item {
-                    padding: 8px;
-
-                    &:first-child {
-                        margin-left: 10px;
-                    }
-                }
-
-                .img {
-                    flex: 1;
-
-                    img {
-                        width: @listItemImgHeight;
-                        height: @listItemImgHeight;
-                        border-radius: @listItemImgHeight/4;
-                    }
-                }
-
-                .iconfont {
-                    flex: 1;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
             }
         }
     }

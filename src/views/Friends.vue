@@ -12,7 +12,29 @@
             </div>
         </div>
         <div class="body">
-
+            <div class="list-group">
+                <div class="list">
+                    <div class="search">
+                        <div class="iconfont">
+                            <div class="icon">&#xe82e;</div>
+                            &nbsp;
+                            <div class="test">搜索</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="text item">新朋友</div>
+                    <div class="iconfont item">
+                        <div class="icon">&#xe84e;</div>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="text item">群通知</div>
+                    <div class="iconfont item">
+                        <div class="icon">&#xe84e;</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="foot">
             <div class="btn iconfont message" @click="$router.push({path:'/'})">
@@ -32,7 +54,7 @@
     export default {
         data() {
             return {
-                title:'',
+                title: '',
                 imgUrl: require("../assets/img/head.jpeg")
             }
         },

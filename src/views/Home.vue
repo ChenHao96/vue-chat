@@ -20,7 +20,17 @@
             </div>
         </div>
         <div class="body">
-
+            <div class="list-group">
+                <div class="list">
+                    <div class="search">
+                        <div class="iconfont">
+                            <div class="icon">&#xe82e;</div>
+                            &nbsp;
+                            <div class="test">搜索</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="foot">
             <div class="btn iconfont message activity">
@@ -53,7 +63,7 @@
                 console.log(this.status)
             },
             clickCamera() {
-
+                console.log("click camera...")
             },
             formatStatus(value) {
                 switch (value) {
@@ -77,8 +87,8 @@
                 display: flex;
                 flex-direction: column;
 
-                .status{
-                    span{
+                .status {
+                    span {
                         cursor: pointer;
                     }
                 }
@@ -94,6 +104,22 @@
 
             .camera, .plus, .title, .img {
                 margin: @headItemMargin;
+            }
+        }
+
+        .body {
+            .list-group {
+                &:first-child {
+                    background-color: cornsilk;
+
+                    .list {
+                        background-color: cornsilk;
+
+                        .search {
+                            background-color: white;
+                        }
+                    }
+                }
             }
         }
     }
