@@ -1,28 +1,36 @@
 <template>
     <div class="searchPage container-page">
         <div class="head">
-            <div class="input">
+            <form class="input" @submit.prevent="submitSearch">
                 <label for="search"></label>
-                <input class="search-input" id="search" placeholder="搜索" type="text"/>
-            </div>
+                <input class="search-input" id="search" v-model="formData.content" placeholder="搜索"/>
+            </form>
             <div class="btn" @click="back">
                 <div class="btnText">取消</div>
             </div>
         </div>
-        <div class="head">
-
-        </div>
-        <div class="body">
-
-        </div>
+        <div class="body"></div>
     </div>
 </template>
 
 <script>
     export default {
+        data() {
+            return {
+                formData: {
+                    content: ''
+                }
+            }
+        },
+        activated() {
+            this.formData.content = ''
+        },
         methods: {
             back() {
                 this.$router.back()
+            },
+            submitSearch() {
+                console.log(this.formData)
             }
         }
     }
@@ -35,12 +43,13 @@
         .head {
             .input {
                 flex: 5;
-                padding: 5px;
                 display: flex;
+                padding: 10px 5px;
                 margin: @headItemMargin;
-                .search-input{
+
+                .search-input {
                     flex: 1;
-                    padding: 0 25px;
+                    padding: 12px 25px;
                     border-radius: 15px;
                     font-size: @textFontSize;
                     border: 1px silver solid;
@@ -49,7 +58,7 @@
         }
 
         .body {
-            flex: 14;
+            flex: 11;
         }
     }
 </style>
