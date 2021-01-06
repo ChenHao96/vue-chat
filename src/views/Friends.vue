@@ -1,5 +1,5 @@
 <template>
-    <div class="tmp container-page">
+    <div class="friends container-page">
         <div class="head">
             <div class="img btn" @click="userInfo">
                 <img :src="imgUrl" alt="用户头像"/>
@@ -50,7 +50,7 @@
 <style lang="less" scoped>
     @import "../assets/public";
 
-    .tmp {
+    .friends {
         .head {
             .title {
                 flex: 4.208;

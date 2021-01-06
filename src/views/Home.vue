@@ -6,8 +6,10 @@
             </div>
             <div class="title">
                 <div class="nickname">{{nickname}}</div>
-                <div class="status" @click="clickStatus">
-                    {{formatStatus(status)}}
+                <div class="status">
+                    <span @click="clickStatus">
+                        {{formatStatus(status)}}&nbsp;&gt;&gt;
+                    </span>
                 </div>
             </div>
             <div class="btn camera iconfont" @click="clickCamera">
@@ -75,8 +77,10 @@
                 display: flex;
                 flex-direction: column;
 
-                .status {
-                    cursor: pointer;
+                .status{
+                    span{
+                        cursor: pointer;
+                    }
                 }
 
                 .nickname, .status {

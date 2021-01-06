@@ -1,5 +1,5 @@
 <template>
-    <div class="tmp container-page">
+    <div class="logs container-page">
         <div class="head">
             <div class="img btn" @click="userInfo">
                 <img :src="imgUrl" alt="用户头像"/>
@@ -12,7 +12,12 @@
             </div>
         </div>
         <div class="body">
-
+            <div class="list-group">
+                <div class="list">1</div>
+                <div class="list">2</div>
+                <div class="list">3</div>
+                <div class="list">4</div>
+            </div>
         </div>
         <div class="foot">
             <div class="btn iconfont message" @click="$router.push({path:'/'})">
@@ -32,7 +37,7 @@
     export default {
         data() {
             return {
-                title:'动态',
+                title: '动态',
                 imgUrl: require("../assets/img/head.jpeg")
             }
         },
@@ -52,7 +57,8 @@
 
 <style lang="less" scoped>
     @import "../assets/public";
-    .tmp {
+
+    .logs {
         .head {
             .title {
                 flex: 4.208;
