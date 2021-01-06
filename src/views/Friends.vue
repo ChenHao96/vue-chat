@@ -32,7 +32,7 @@
     export default {
         data() {
             return {
-                title:'联系人',
+                title:'',
                 imgUrl: require("../assets/img/head.jpeg")
             }
         },

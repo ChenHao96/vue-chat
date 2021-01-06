@@ -50,7 +50,7 @@ const routes = [
     {
         path: '/logsSetting',
         meta: {
-            title: '设置'
+            title: '动态页设置'
         },
         component: () => import('./views/second/LogsSetting')
     }

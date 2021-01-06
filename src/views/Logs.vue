@@ -12,7 +12,24 @@
             </div>
         </div>
         <div class="body">
-            <div class="list-group" v-for="(item,key) in items">
+            <div class="list-group">
+                <div class="list">
+                    <div class="search">
+                        <div class="iconfont">
+                            <div class="icon">&#xe82e;</div>
+                            <div class="test">搜索</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="img item"><img :src="imgUrl" alt="图标"/></div>
+                    <div class="text item">好友动态</div>
+                    <div class="iconfont item">
+                        <div class="icon">&#xe84e;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group" v-for="item in items">
                 <div class="list" v-for="ii in item">
                     <div class="img item"><img :src="ii.src" alt="图标"/></div>
                     <div class="text item">{{ii.text}}</div>
@@ -40,7 +57,7 @@
     export default {
         data() {
             return {
-                title: '动态',
+                title: '',
                 imgUrl: require("../assets/img/head.jpeg"),
                 items: {
                     "group1": [
@@ -94,9 +111,6 @@
 
         .body {
             .list {
-                cursor: pointer;
-                display: flex;
-
                 .text {
                     flex: 11.8;
                     display: flex;

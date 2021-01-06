@@ -5,7 +5,7 @@
                 <div class="btnText">&#xe84f;</div>
             </div>
             <div class="title titleText">
-                <div class="text">动态页设置</div>
+                <div class="text">{{title}}</div>
             </div>
             <div class="btn" style="cursor: auto;">
                 <div class="btnText"></div>
@@ -19,6 +19,14 @@
 
 <script>
     export default {
+        data() {
+            return {
+                title: ''
+            }
+        },
+        activated() {
+            this.title = document.title
+        },
         methods: {
             back() {
                 this.$router.back()

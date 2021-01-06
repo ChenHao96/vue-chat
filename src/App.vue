@@ -42,6 +42,7 @@
         .head {
             flex: 1;
             display: flex;
+            user-select: none;
             background-color: bisque;
 
             .img {
@@ -52,10 +53,6 @@
                     height: @headImgPCWidth;
                     border-radius: @headImgPCWidth/2;
                 }
-            }
-
-            .title, .titleText {
-                user-select: none;
             }
 
             .titleText {
@@ -73,6 +70,7 @@
         .foot {
             flex: 1;
             display: flex;
+            user-select: none;
             background-color: bisque;
 
             .activity {
@@ -115,9 +113,18 @@
 
             .list{
                 flex: 1;
+                display: flex;
+                cursor: pointer;
                 background-color: white;
                 height: @listLineHeight;
                 line-height: @listLineHeight;
+
+                .search{
+                    flex: 1;
+                    margin: 7.5px 15px;
+                    border-radius: 15px;
+                    background-color: cornsilk;
+                }
             }
         }
     }
