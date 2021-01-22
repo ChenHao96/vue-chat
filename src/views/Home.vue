@@ -1,174 +1,117 @@
 <template>
-    <div class="home container-page">
-        <div class="head">
-            <div class="img btn" @click="userInfo">
-                <img :src="imgUrl" alt="用户头像"/>
-            </div>
-            <div class="title">
+    <div class="container-page">
+        <image-head>
+            <div class="head-center">
                 <div class="nickname">{{nickname}}</div>
                 <div class="status">
-                    <span @click="clickStatus">
-                        {{formatStatus(status)}}&nbsp;&gt;&gt;
-                    </span>
+                    <div :class="'ball ' + formatStatusClass(status)">&nbsp;</div>
+                    <div class="text iconfont">{{formatStatus(status)}}&#xe84e;</div>
                 </div>
             </div>
-            <div class="btn camera iconfont" @click="clickCamera">
-                <div class="btnText">&#xe853;</div>
+            <div class="head-right">
+                <div class="iconfont">&#xe853;</div>
             </div>
-            <div class="btn plus iconfont">
-                <div class="btnText">&#xe829;</div>
+            <div class="head-right">
+                <div class="iconfont">&#xe829;</div>
             </div>
-        </div>
-        <div class="body">
-            <div :class="'list-group'+(topItems.length>0?' top-message-list':'')">
-                <div class="list" @click="clickSearch">
-                    <div class="search">
-                        <div class="iconfont">
-                            <div class="icon">&#xe82e;</div>
-                            &nbsp;
-                            <div class="test">搜索</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="list" v-for="item in topItems" @click="clickItem(item)">
-                    <div class="img item"><img :src="item.src" alt="图标"/></div>
-                    <div class="text item">{{item.text}}</div>
-                    <div class="iconfont item">
-                        <div class="icon">&#xe84e;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-group">
-                <div class="list" v-for="item in items" @click="clickItem(item)">
-                    <div class="img item"><img :src="item.src" alt="图标"/></div>
-                    <div class="text item">{{item.text}}</div>
-                    <div class="iconfont item">
-                        <div class="icon">&#xe84e;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="foot">
-            <div class="btn iconfont message activity">
-                <div class="btnText">&#xe7ea;</div>
-            </div>
-            <div class="btn iconfont friend" @click="$router.push({path:'/friends'})">
-                <div class="btnText">&#xe815;</div>
-            </div>
-            <div class="btn iconfont logs" @click="$router.push({path:'/logs'})">
-                <div class="btnText">&#xe771;</div>
-            </div>
-        </div>
+        </image-head>
+        <chat-body>
+            <home-body/>
+        </chat-body>
+        <chat-foot/>
     </div>
 </template>
 
 <script>
+    import Body from "../components/Body"
+    import Foot from "../components/Foot"
+    import HomeBody from "./component/HomeBody"
+    import ImageHead from "../components/ImageHead"
+
     export default {
         data() {
             return {
-                imgUrl: '',
-                nickname: '',
                 status: 0,
-                topItems: [],
-                items: []
+                nickname: ''
             }
         },
         activated() {
-            // TODO:
-            const img = this.imgUrl = require("../assets/img/head.jpeg")
+            this.status = 1
             this.nickname = 'abc123'
-            this.status = 0
-            this.topItems = [
-                {
-                    src: img,
-                    text: '134123412341234'
-                }
-            ]
-            this.items = [
-                {
-                    src: img,
-                    text: 'abc123'
-                }
-            ]
         },
         methods: {
-            userInfo() {
-                this.$router.push({path: "/userInfoSetting"})
-            },
-            clickSearch() {
-                this.$router.push({path: "/search"})
-            },
-            clickItem(item) {
-                // TODO:
-                console.log(item)
-                this.$router.push({path: "/chatRoom"})
-            },
-            clickStatus() {
-                // TODO:
-                console.log(this.status)
-            },
-            clickCamera() {
-                // TODO:
-                console.log("click camera...")
-            },
             formatStatus(value) {
                 switch (value) {
-                    case 1:
+                    case 2:
                         return "游戏中..."
-                    default:
+                    case 1:
                         return "在线"
+                    default:
+                        return "离线"
+                }
+            },
+            formatStatusClass(value) {
+                switch (value) {
+                    case 2:
+                        return "playGame"
+                    case 1:
+                        return "online"
+                    default:
+                        return "offline"
                 }
             }
+        },
+        components: {
+            "chat-body": Body,
+            "chat-foot": Foot,
+            "home-body": HomeBody,
+            "image-head": ImageHead
         }
     }
 </script>
 
 <style lang="less" scoped>
-    @import "../assets/public";
 
-    .home {
-        .head {
-            .title {
-                flex: 3.02;
-                display: flex;
-                flex-direction: column;
+    .head-center {
 
-                .status {
-                    span {
-                        cursor: pointer;
-                    }
-                }
-
-                .nickname, .status {
-                    flex: 1;
-                    display: flex;
-                    color: @textColor;
-                    align-items: center;
-                    font-size: @textFontSize;
-                }
-            }
-
-            .camera, .plus, .title, .img {
-                margin: @headItemMargin;
-            }
+        .nickname {
+            flex: 2;
+            display: flex;
+            font-size: 1.5rem;
+            align-items: flex-end;
         }
 
-        .body {
-            .list-group {
-                margin-bottom: 0;
+        .status {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            @headMarginSide: 5px;
+
+            .text {
+                cursor: pointer;
+                margin-left: @headMarginSide;
             }
-        }
 
-        .top-message-list {
-            &:first-child {
-                background-color: @bodyBackgroundColor;
+            @ballWidth: 12px;
 
-                .list {
-                    background-color: @bodyBackgroundColor;
+            .ball {
+                height: @ballWidth;
+                width: @ballWidth;
+                border-radius: @ballWidth/2;
 
-                    .search {
-                        background-color: @listBackgroundColor;
-                    }
+                &.online {
+                    color: #67C23A;
+                    background-color: #67C23A;
+                }
+
+                &.offline {
+                    color: #909399;
+                    background-color: #909399;
+                }
+
+                &.playGame {
+                    color: #E6A23C;
+                    background-color: #E6A23C;
                 }
             }
         }

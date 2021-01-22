@@ -1,67 +1,71 @@
 <template>
-    <div class="searchPage container-page">
-        <div class="head">
-            <form class="input" @submit.prevent="submitSearch">
-                <label for="search"></label>
-                <input class="search-input" id="search" ref="search"
-                       v-model="formData.content" placeholder="搜索"/>
-            </form>
-            <div class="btn" @click="back">
-                <div class="btnText">取消</div>
+    <div class="container-page">
+        <div class="container-head search-head">
+            <div class="head-center">
+                <label for="search-input"/>
+                <input type="text" id="search-input" v-model="content"
+                       placeholder="搜索" @keyup.enter="searchContent"/>
+            </div>
+            <div class="head-right" @click="clickBack">
+                <div>取消</div>
             </div>
         </div>
-        <div class="body"></div>
+        <chat-body>
+
+        </chat-body>
     </div>
 </template>
 
 <script>
+    import Body from "../../components/Body"
+
     export default {
         data() {
             return {
-                formData: {
-                    content: ''
-                }
+                content: ''
             }
         },
+        components: {
+            "chat-body": Body
+        },
         activated() {
-            this.formData.content = ''
-            this.$refs.search.focus()
+            this.content = ''
         },
         methods: {
-            back() {
-                this.$router.back()
+            searchContent() {
+                console.log(this.content)
             },
-            submitSearch() {
-                // TODO:
-                console.log(this.formData)
+            clickBack() {
+                const path = sessionStorage.getItem("lastRequestPagePath")
+                if (undefined !== path) {
+                    this.$router.push({path: path})
+                }
             }
         }
     }
 </script>
 
 <style lang="less" scoped>
-    @import "../../assets/public";
+    .search-head {
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        justify-content: center;
 
-    .searchPage {
-        .head {
-            .input {
-                flex: 5;
-                display: flex;
-                padding: 10px 5px;
-                margin: @headItemMargin;
-
-                .search-input {
-                    flex: 1;
-                    border-style: none;
-                    padding: 12px 25px;
-                    border-radius: 25px;
-                    font-size: @textFontSize;
-                }
-            }
+        label {
+            display: none;
         }
 
-        .body {
-            flex: 11;
+        .head-center {
+            margin-right: 10px;
+        }
+
+        #search-input {
+            border: hidden;
+            height: 2.8rem;
+            padding: 0 15px;
+            font-size: 1.5rem;
+            border-radius: 15px;
         }
     }
 </style>

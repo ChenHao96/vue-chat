@@ -1,5 +1,5 @@
 <template>
-    <back-head title="动态页设置">
+    <back-head title="用户设置">
         <chat-body/>
     </back-head>
 </template>

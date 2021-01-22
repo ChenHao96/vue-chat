@@ -1,103 +1,36 @@
 <template>
-    <div class="logs container-page">
-        <div class="head">
-            <div class="img btn" @click="userInfo">
-                <img :src="imgUrl" alt="用户头像"/>
+    <div class="container-page">
+        <image-head>
+            <div class="head-center">
+                <div class="text">动态</div>
             </div>
-            <div class="title titleText">
-                <div class="text">{{title}}</div>
+            <div class="head-right" @click="clickSetting">
+                <div class="iconfont">&#xe7e6;</div>
             </div>
-            <div class="btn setting iconfont" @click="clickSetting">
-                <div class="btnText">&#xe7e6;</div>
-            </div>
-        </div>
-        <div class="body">
-            <div class="list-group">
-                <div class="list" @click="clickSearch">
-                    <div class="search">
-                        <div class="iconfont">
-                            <div class="icon">&#xe82e;</div>
-                            &nbsp;
-                            <div class="test">搜索</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="img item"><img :src="imgUrl" alt="图标"/></div>
-                    <div class="text item">好友动态</div>
-                    <div class="iconfont item">
-                        <div class="icon">&#xe84e;</div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-group" v-for="item in items">
-                <div class="list" v-for="ii in item">
-                    <div class="img item"><img :src="ii.src" alt="图标"/></div>
-                    <div class="text item">{{ii.text}}</div>
-                    <div class="iconfont item">
-                        <div class="icon">&#xe84e;</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="foot">
-            <div class="btn iconfont message" @click="$router.push({path:'/'})">
-                <div class="btnText">&#xe7ea;</div>
-            </div>
-            <div class="btn iconfont friend" @click="$router.push({path:'/friends'})">
-                <div class="btnText">&#xe815;</div>
-            </div>
-            <div class="btn iconfont logs activity">
-                <div class="btnText">&#xe771;</div>
-            </div>
-        </div>
+        </image-head>
+        <chat-body>
+            <logs-body/>
+        </chat-body>
+        <chat-foot/>
     </div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                title: '',
-                items: {},
-                imgUrl: ''
-            }
-        },
-        activated() {
-            this.title = document.title
+    import Body from "../components/Body"
+    import Foot from "../components/Foot"
+    import LogsBody from "./component/LogsBody"
+    import ImageHead from "../components/ImageHead"
 
-            // TODO:
-            const img = this.imgUrl = require("../assets/img/head.jpeg")
-            this.items = {
-                "group1": [
-                    {
-                        src: img,
-                        text: '134123412341234'
-                    }, {
-                        src: img,
-                        text: '134123412341234'
-                    }, {
-                        src: img,
-                        text: '134123412341234'
-                    }
-                ],
-                "group2": [
-                    {
-                        src: img,
-                        text: '134123412341234'
-                    }
-                ]
-            }
+    export default {
+        components: {
+            "chat-body": Body,
+            "chat-foot": Foot,
+            "logs-body": LogsBody,
+            "image-head": ImageHead
         },
         methods: {
-            userInfo() {
-                this.$router.push({path: "/userInfoSetting"})
-            },
             clickSetting() {
                 this.$router.push({path: "/logsSetting"})
-            },
-            clickSearch() {
-                this.$router.push({path: "/search"})
             }
         }
     }
@@ -106,15 +39,14 @@
 <style lang="less" scoped>
     @import "../assets/public";
 
-    .logs {
-        .head {
-            .title {
-                flex: 4.208;
-            }
+    .head-center {
+        align-items: center;
 
-            .setting, .title, .img {
-                margin: @headItemMargin;
-            }
+        .text {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
         }
     }
 </style>

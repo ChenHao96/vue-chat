@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from "./views/Home"
+import Home from './views/Home.vue'
+import NotFound from './views/NotFound.vue'
 
 Vue.use(Router)
 
@@ -8,9 +9,9 @@ const routes = [
     {
         path: '/404',
         meta: {
-            title: '页面丢失了'
+            title: '页面丢失'
         },
-        component: () => import('./views/tmp')
+        component: NotFound
     },
     {
         path: '/',
@@ -41,18 +42,11 @@ const routes = [
         component: () => import('./views/second/Search')
     },
     {
-        path: '/chatRoom',
+        path: '/userSetting',
         meta: {
-            title: '聊天窗口'
+            title: '用户设置'
         },
-        component: () => import('./views/second/ChatRoom')
-    },
-    {
-        path: '/userInfoSetting',
-        meta: {
-            title: '设置'
-        },
-        component: () => import('./views/second/UserInfoSetting')
+        component: () => import('./views/second/UserSetting')
     },
     {
         path: '/logsSetting',
@@ -60,10 +54,11 @@ const routes = [
             title: '动态页设置'
         },
         component: () => import('./views/second/LogsSetting')
-    }
+    },
 ]
 
 const processPathFunc = (function () {
+
     const cachePathMap = {}
     for (let i = 0; i < routes.length; i++) {
         cachePathMap[routes[i].path] = true
@@ -71,6 +66,7 @@ const processPathFunc = (function () {
 
     return function (to, from, next) {
         if (undefined !== cachePathMap[to.path]) {
+            sessionStorage.setItem("lastRequestPagePath", from.fullPath)
             document.title = to.meta.title
             next()
         } else {
