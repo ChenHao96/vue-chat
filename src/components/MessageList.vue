@@ -120,7 +120,21 @@
                 align-items: center;
 
                 .count {
+
+                    @borderSize: 1.2rem;
+                    font-weight: bold;
+                    width: @borderSize;
+                    height: @borderSize;
+                    font-size: @borderSize*.7;
+                    border-radius: @borderSize/2;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    color: white;
                     margin: 0 15px;
+                    background-color: #909399;
                 }
             }
         }
