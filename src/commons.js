@@ -131,7 +131,7 @@ export default {
         return /MicroMessenger/ig.test(window.navigator.userAgent)
     },
     deviceIOS() {
-        return /iphone|ipod|ipad|ios/i.test(window.navigator.userAgent.toLowerCase())
+        return /Mac OS/i.test(window.navigator.userAgent)
     },
     deviceAndroid() {
         return /Android|Adr/i.test(window.navigator.userAgent)
