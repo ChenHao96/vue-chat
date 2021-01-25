@@ -1,5 +1,7 @@
 import Vue from 'vue'
+import store from './store'
 import Router from 'vue-router'
+
 import Home from './views/Home.vue'
 import NotFound from './views/NotFound.vue'
 
@@ -9,28 +11,32 @@ const routes = [
     {
         path: '/404',
         meta: {
-            title: '页面丢失'
+            title: '页面丢失',
+            top: true
         },
         component: NotFound
     },
     {
         path: '/',
         meta: {
-            title: '消息'
+            title: '消息',
+            top: true
         },
         component: Home
     },
     {
         path: '/friends',
         meta: {
-            title: '联系人'
+            title: '联系人',
+            top: true
         },
         component: () => import('./views/Friends')
     },
     {
         path: '/logs',
         meta: {
-            title: '动态'
+            title: '动态',
+            top: true
         },
         component: () => import('./views/Logs')
     },
@@ -55,6 +61,20 @@ const routes = [
         },
         component: () => import('./views/second/LogsSetting')
     },
+    {
+        path: '/friends/test',
+        meta: {
+            title: '测试页1'
+        },
+        component: () => import('./views/second/Test1')
+    },
+    {
+        path: '/friends/test/test',
+        meta: {
+            title: '测试页2'
+        },
+        component: () => import('./views/second/Test2')
+    }
 ]
 
 const processPathFunc = (function () {
@@ -66,7 +86,10 @@ const processPathFunc = (function () {
 
     return function (to, from, next) {
         if (undefined !== cachePathMap[to.path]) {
-            sessionStorage.setItem("lastRequestPagePath", from.fullPath)
+            store.commit("lastRequestPath", from.fullPath)
+            if (undefined !== to.meta.top && to.meta.top) {
+                store.commit("clearPath")
+            }
             document.title = to.meta.title
             next()
         } else {

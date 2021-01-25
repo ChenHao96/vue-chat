@@ -28,9 +28,12 @@
         },
         methods: {
             clickBack() {
-                const path = sessionStorage.getItem("lastRequestPagePath")
+                this.$store.commit("backPath")
+                const path = this.$store.state.last_request_path.pop()
                 if (undefined !== path) {
                     this.$router.push({path: path})
+                } else {
+                    this.$router.push({path: "/"})
                 }
             }
         },

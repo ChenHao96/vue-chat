@@ -2,7 +2,7 @@
     <div class="body-content">
         <list-group>
             <search-item/>
-            <list-item title="新朋友" :has-icon="false"/>
+            <list-item title="新朋友" :has-icon="false" @click.native="clickItem"/>
             <list-item title="群通知" :has-icon="false"/>
         </list-group>
     </div>
@@ -19,6 +19,11 @@
             return {}
         },
         activated() {
+        },
+        methods: {
+            clickItem() {
+                this.$router.push({path: "/friends/test"})
+            }
         },
         components: {
             "list-group": ListGroup,
