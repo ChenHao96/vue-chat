@@ -10,7 +10,10 @@
                 <div class="text">{{title}}</div>
                 <div class="time">{{timeFormat(time)}}</div>
             </div>
-            <div class="message">{{message}}</div>
+            <div class="message">
+                <div class="text">{{message}}</div>
+                <div class="count" v-if="count>0">{{count}}</div>
+            </div>
         </div>
     </div>
 </template>
@@ -39,6 +42,10 @@
             time: {
                 type: Number,
                 require: true
+            },
+            count: {
+                type: Number,
+                default: 0
             }
         },
         methods: {
@@ -82,12 +89,8 @@
 
             .title, .message {
                 flex: 1;
-                font-size: 1.2rem;
-            }
-
-            .title {
                 display: flex;
-                align-items: flex-end;
+                color: #6a6a6a;
                 justify-content: flex-end;
 
                 .text {
@@ -97,8 +100,26 @@
                     white-space: nowrap;
                     text-overflow: ellipsis;
                 }
+            }
+
+            .title {
+                font-size: 1.3rem;
+                align-items: flex-end;
+
+                .text {
+                    color: black;
+                }
 
                 .time {
+                    font-size: 1rem;
+                    margin: 0 15px;
+                }
+            }
+
+            .message {
+                align-items: center;
+
+                .count {
                     margin: 0 15px;
                 }
             }

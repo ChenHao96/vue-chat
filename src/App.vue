@@ -30,7 +30,7 @@
     .container {
         height: @containerHeight;
         margin: @containerMargin;
-        width: calc(@containerHeight * (9 / 16));
+        width: @containerWidth;
 
         .container-page {
             display: flex;

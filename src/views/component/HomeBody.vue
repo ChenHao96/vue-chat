@@ -3,7 +3,7 @@
         <list-group>
             <search-item :class="searchStyle()"/>
             <message-list v-for="item in messages" :class="item.top?'search-top':''" :title="item.title"
-                          :message="item.message" :time="item.time" :item-icon="item.itemIcon"/>
+                          :message="item.message" :time="item.time" :item-icon="item.itemIcon" :count="item.count"/>
         </list-group>
     </div>
 </template>
@@ -35,6 +35,7 @@
         activated() {
             const icon = require("../../assets/img/head.jpeg")
             this.messages.push({
+                count: 1,
                 top: false,
                 title: "1",
                 message: "1",
