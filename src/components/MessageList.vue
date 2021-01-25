@@ -6,15 +6,18 @@
             </div>
         </div>
         <div class="item-title">
-            <div class="title">{{title}}</div>
-        </div>
-        <div class="item-right-icon item-icon iconfont">
-            <div class="icon">&#xe84e;</div>
+            <div class="title">
+                <div class="text">{{title}}</div>
+                <div class="time">{{timeFormat(time)}}</div>
+            </div>
+            <div class="message">{{message}}</div>
         </div>
     </div>
 </template>
 
 <script>
+    import timeFormat from "../timeFormat"
+
     export default {
         name: "message-list",
         props: {
@@ -28,6 +31,19 @@
             title: {
                 type: String,
                 require: true
+            },
+            message: {
+                type: String,
+                default: ""
+            },
+            time: {
+                type: Number,
+                require: true
+            }
+        },
+        methods: {
+            timeFormat(value) {
+                return timeFormat.formatBetweenTime(value)
             }
         }
     }
@@ -36,6 +52,7 @@
 <style lang="less">
     @import "../assets/public";
 
+    @listHeight: 4rem;
     @listItemMarginSide: .6rem;
     .message-list {
 
@@ -48,25 +65,46 @@
         .item-icon, .item-title {
             display: flex;
             height: @listHeight;
-            align-items: center;
         }
 
         .item-icon {
             text-align: center;
             width: @listHeight;
+            align-items: center;
             justify-content: center;
-        }
-
-        .item-right-icon {
-            margin-right: @listItemMarginSide;
         }
 
         .item-title {
             flex: 1;
-            margin-left: @listItemMarginSide*1.5;
+            display: flex;
+            flex-direction: column;
+            margin-left: @listItemMarginSide;
+
+            .title, .message {
+                flex: 1;
+                font-size: 1.2rem;
+            }
+
+            .title {
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+
+                .text {
+                    flex: 1;
+                    width: 300px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                .time {
+                    margin: 0 15px;
+                }
+            }
         }
 
-        @imgWidth: @listHeight * 0.7;
+        @imgWidth: @listHeight * 0.8;
 
         .item-left-icon {
             margin-left: @listItemMarginSide;
@@ -79,7 +117,7 @@
 
                 img {
                     width: inherit;
-                    border-radius: @imgWidth/4;
+                    border-radius: @imgWidth/2;
                 }
             }
         }
