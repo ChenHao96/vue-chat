@@ -3,7 +3,7 @@
         <div class="container-head search-head">
             <div class="head-center">
                 <label for="search-input"/>
-                <input type="text" id="search-input" v-model="content"
+                <input type="text" id="search-input" v-model="content" ref="search"
                        placeholder="搜索" @keyup.enter="searchContent"/>
             </div>
             <div class="head-right" @click="clickBack">
@@ -30,6 +30,7 @@
         },
         activated() {
             this.content = ''
+            this.$refs.search.focus();
         },
         methods: {
             searchContent() {

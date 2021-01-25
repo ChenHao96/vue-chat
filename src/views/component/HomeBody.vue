@@ -38,7 +38,7 @@
         mounted() {
             const icon = require("../../assets/img/head.jpeg")
             this.messages.push({
-                top: false,
+                top: true,
                 title: "1",
                 message: "1asdfasdffffasdffffasdffffasdffffasdffffffffffffffffffffffffffffffffffffffffffffffffff",
                 itemIcon: icon,
