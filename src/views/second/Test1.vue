@@ -17,7 +17,7 @@
     export default {
         methods: {
             clickItem() {
-                this.$router.push({path: "/friends/test/test"})
+                this.$router.push({path: "/friends.test.test"})
             }
         },
         components: {

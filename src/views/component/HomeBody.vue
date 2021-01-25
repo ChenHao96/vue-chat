@@ -33,9 +33,11 @@
             }
         },
         activated() {
+
+        },
+        mounted() {
             const icon = require("../../assets/img/head.jpeg")
             this.messages.push({
-                count: 1,
                 top: false,
                 title: "1",
                 message: "1asdfasdffffasdffffasdffffasdffffasdffffffffffffffffffffffffffffffffffffffffffffffffff",
@@ -52,6 +54,7 @@
                 itemIcon: icon,
                 title: "3",
                 message: "3",
+                count: 1,
                 time: 1610006420000
             })
         },

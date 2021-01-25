@@ -25,7 +25,7 @@
         },
         methods: {
             clickHead() {
-                this.$router.push({path: "/userSetting"})
+                this.$router.push({path: "/user-setting"})
             }
         }
     }

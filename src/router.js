@@ -48,28 +48,28 @@ const routes = [
         component: () => import('./views/second/Search')
     },
     {
-        path: '/userSetting',
+        path: '/user-setting',
         meta: {
             title: '用户设置'
         },
         component: () => import('./views/second/UserSetting')
     },
     {
-        path: '/logsSetting',
+        path: '/logs-setting',
         meta: {
             title: '动态页设置'
         },
         component: () => import('./views/second/LogsSetting')
     },
     {
-        path: '/friends/test',
+        path: '/friends.test',
         meta: {
             title: '测试页1'
         },
         component: () => import('./views/second/Test1')
     },
     {
-        path: '/friends/test/test',
+        path: '/friends.test.test',
         meta: {
             title: '测试页2'
         },

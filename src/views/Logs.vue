@@ -30,7 +30,7 @@
         },
         methods: {
             clickSetting() {
-                this.$router.push({path: "/logsSetting"})
+                this.$router.push({path: "/logs-setting"})
             }
         }
     }

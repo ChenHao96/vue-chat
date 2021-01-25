@@ -22,7 +22,7 @@
         },
         methods: {
             clickItem() {
-                this.$router.push({path: "/friends/test"})
+                this.$router.push({path: "/friends.test"})
             }
         },
         components: {
