@@ -44,7 +44,7 @@ label{
     }
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (orientation: portrait) {
     #firstLoading {
         width: 17rem;
         margin: 30vw 10%;

@@ -28,8 +28,8 @@
     @import "assets/public";
 
     .container {
-        height: @containerHeight;
         margin: @containerMargin;
+        height: @containerHeight;
         width: @containerWidth;
 
         .container-page {
@@ -39,7 +39,7 @@
         }
     }
 
-    @media screen and (max-width: 415px) {
+    @media screen and (orientation: portrait) {
         .container {
             margin: 0;
             width: @bodyWidth;
