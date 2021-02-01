@@ -28,23 +28,7 @@
         },
         methods: {
             clickBack() {
-                this.$store.commit("backPath")
-                const path = this.$store.state.last_request_path.pop()
-                if (undefined !== path) {
-                    this.$router.push({path: path})
-                } else {
-                    if (undefined !== window.sclab) {
-                        window.sclab.backIndex()
-                    }
-                    this.$router.push({path: "/"})
-                }
-            }
-        },
-        mounted() {
-            if (undefined !== window.sclab) {
-                if (undefined === window.sclab.clickBack) {
-                    window.sclab.clickBack = this.clickBack
-                }
+                window.pathBack()
             }
         },
         components: {
