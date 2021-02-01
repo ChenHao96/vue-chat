@@ -32,6 +32,13 @@
             this.content = ''
             this.$refs.search.focus();
         },
+        mounted() {
+            if (undefined !== window.sclab) {
+                if (undefined === window.sclab.clickBack) {
+                    window.sclab.clickBack = this.clickBack
+                }
+            }
+        },
         methods: {
             searchContent() {
                 console.log(this.content)
@@ -42,6 +49,9 @@
                 if (undefined !== path) {
                     this.$router.push({path: path})
                 } else {
+                    if (undefined !== window.sclab) {
+                        window.sclab.backIndex()
+                    }
                     this.$router.push({path: "/"})
                 }
             }
