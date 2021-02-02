@@ -49,7 +49,7 @@
                 count:1,
                 message: "2",
                 itemIcon: icon,
-                title: "2asdfasdffffasdfffffff",
+                title: "qwertyuopasdghkzxcvbnmqwertyuopasdghkzxcdfasdfasdf",
                 time: 1611416420000
             })
             this.messages.push({

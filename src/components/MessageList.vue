@@ -59,7 +59,7 @@
 <style lang="less">
     @import "../assets/public";
 
-    @listHeight: 4rem;
+    @listHeight: 3.5rem;
     @listItemMarginSide: .6rem;
     .message-list {
 
@@ -101,8 +101,9 @@
                 }
             }
 
+            @rightMargin: 15px;
             .title {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
                 align-items: flex-end;
 
                 .text {
@@ -111,20 +112,19 @@
 
                 .time {
                     font-size: 1rem;
-                    margin: 0 15px;
+                    margin: 0 @rightMargin;
                 }
             }
 
             .message {
+                font-size: 0.9rem;
                 align-items: center;
-                max-width: 433px;
+
                 .count {
 
-                    @borderSize: 1.2rem;
-                    font-weight: bold;
+                    @borderSize: 1.125rem;
                     width: @borderSize;
                     height: @borderSize;
-                    font-size: @borderSize*.7;
                     border-radius: @borderSize/2;
 
                     display: flex;
@@ -132,7 +132,7 @@
                     justify-content: center;
 
                     color: white;
-                    margin: 0 15px;
+                    margin: 0 @rightMargin;
                     background-color: #909399;
                 }
             }
