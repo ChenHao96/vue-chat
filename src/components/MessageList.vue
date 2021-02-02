@@ -95,7 +95,6 @@
 
                 .text {
                     flex: 1;
-                    width: 300px;
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
@@ -118,7 +117,7 @@
 
             .message {
                 align-items: center;
-
+                max-width: 433px;
                 .count {
 
                     @borderSize: 1.2rem;
@@ -151,6 +150,7 @@
                 justify-content: center;
 
                 img {
+                    height: 100%;
                     width: inherit;
                     border-radius: @imgWidth/2;
                 }

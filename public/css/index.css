@@ -4,18 +4,22 @@ body,iframe {
     padding: 0;
 }
 
-#firstLoading {
-    position: fixed;
-    z-index: 9999;
-    width: 22rem;
-    margin: 20vw 30%;
+label{
+    display: none;
 }
 
-#firstLoading div {
-    float: left;
+#firstLoading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-#firstLoading .text {
+.block {
+    display: flex;
+}
+
+.block .text {
     font-weight: bold;
     font-size: 2rem;
     margin-left: .5rem;
@@ -23,16 +27,12 @@ body,iframe {
     color: rgba(189, 195, 199, 1);
 }
 
-#firstLoading .load {
+.block .load {
     width: 2em;
     height: 2em;
     line-height: 2rem;
     background: rgba(189, 195, 199, 1);
     animation: loadit 4s linear infinite;
-}
-
-label{
-    display: none;
 }
 
 @keyframes loadit {
@@ -45,12 +45,12 @@ label{
 }
 
 @media screen and (orientation: portrait) {
-    #firstLoading {
+    .block {
         width: 17rem;
         margin: 30vw 10%;
     }
 
-    #firstLoading .text {
+    .block .text {
         font-size: 1.5rem;
     }
 }

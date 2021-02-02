@@ -40,21 +40,23 @@
             this.messages.push({
                 top: true,
                 title: "1",
-                message: "1asdfasdffffasdffffasdffffasdffffasdffffffffffffffffffffffffffffffffffffffffffffffffff",
+                count:0,
+                message: "qwertyuopasdghkzxcvbnmqwertyuopasdghkzxcdfasdfasdf",
                 itemIcon: icon,
                 time: 1611426420000
             })
             this.messages.push({
-                itemIcon: icon,
-                title: "2asdfasdffffasdffffasdffffasdffffasdffffffffffffffffffffffffffffffffffffffffffffffffff",
+                count:1,
                 message: "2",
+                itemIcon: icon,
+                title: "2asdfasdffffasdfffffff",
                 time: 1611416420000
             })
             this.messages.push({
                 itemIcon: icon,
                 title: "3",
                 message: "3",
-                count: 1,
+                count: 2,
                 time: 1610006420000
             })
         },

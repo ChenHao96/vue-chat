@@ -78,6 +78,7 @@
                 justify-content: center;
 
                 img {
+                    height: 100%;
                     width: inherit;
                     border-radius: @imgWidth/4;
                 }
