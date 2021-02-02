@@ -28,7 +28,7 @@
         },
         methods: {
             clickBack() {
-                window.pathBack()
+                window.sclab.clickBack()
             }
         },
         components: {

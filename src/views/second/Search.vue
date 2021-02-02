@@ -37,7 +37,7 @@
                 console.log(this.content)
             },
             clickBack() {
-                window.pathBack()
+                window.sclab.clickBack()
             }
         }
     }
