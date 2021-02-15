@@ -59,11 +59,15 @@
         }
 
         #search-input {
-            border: hidden;
+            outline: none;
             height: 2.8rem;
             padding: 0 15px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             border-radius: 15px;
+            border: 1px bisque solid;
+            &:focus{
+                border: 1px sandybrown solid;
+            }
         }
     }
 </style>

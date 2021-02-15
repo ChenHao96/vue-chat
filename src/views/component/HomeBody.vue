@@ -59,6 +59,13 @@
                 count: 2,
                 time: 1610006420000
             })
+            this.messages.push({
+                itemIcon: icon,
+                title: "qwertyuopasdghkzxcvbnmqwertyuopasdghkzxcdfasdfasdf",
+                message: "qwertyuopasdghkzxcvbnmqwertyuopasdghkzxcdfasdfasdf",
+                count: 2,
+                time: 1610006420000
+            })
         },
         components: {
             "list-group": ListGroup,

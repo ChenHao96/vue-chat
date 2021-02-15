@@ -95,13 +95,14 @@
 
                 .text {
                     flex: 1;
+                    width: 100px;
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                 }
             }
 
-            @rightMargin: 15px;
+            @rightMargin: 1rem;
             .title {
                 font-size: 1.1rem;
                 align-items: flex-end;
@@ -133,7 +134,7 @@
 
                     color: white;
                     margin: 0 @rightMargin;
-                    background-color: #909399;
+                    background-color: bisque;
                 }
             }
         }
@@ -141,12 +142,13 @@
         @imgWidth: @listHeight * 0.8;
 
         .item-left-icon {
+            width: @imgWidth;
             margin-left: @listItemMarginSide;
 
             .img {
                 flex: 1;
                 display: flex;
-                width: @imgWidth;
+                width: inherit;
                 justify-content: center;
 
                 img {
