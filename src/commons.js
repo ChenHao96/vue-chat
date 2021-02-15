@@ -1,5 +1,3 @@
-import {v1} from 'uuid'
-
 const isEmpty = (value) => {
     return undefined === value || null === value || 0 === value.length
 }
@@ -53,57 +51,10 @@ const cloneObject = (source) => {
     return result
 }
 
-const dataToRequestParameter = (data, prefix, suffix) => {
-
-    if (undefined === prefix) {
-        prefix = ""
-    }
-
-    if (undefined === suffix) {
-        suffix = ""
-    }
-
-    let result = ""
-    for (let key in data) {
-        const obj = data[key]
-        if (undefined === obj || null === obj) {
-            continue
-        }
-
-        if (Object === obj.constructor) {
-            result += dataToRequestParameter(obj, prefix + key + suffix + ".")
-        } else if (Array === obj.constructor) {
-            result += dataToRequestParameter(obj, prefix + key + suffix + "[", "]")
-        } else {
-            result += prefix + key + suffix
-            result += "="
-            if (Date === obj.constructor) {
-                result += obj.getTime()
-            } else {
-                result += encodeURIComponent(obj)
-            }
-            result += "&"
-        }
-    }
-
-    return result
-}
-
-const DEVICE_REQUEST_HEAD_KEY = "X-Request-Device"
 export default {
     isEmpty,
     cloneObject,
     clearEmptyParam,
-    dataToRequestParameter,
-    DEVICE_REQUEST_HEAD_KEY,
-    getDeviceId: () => {
-        let deviceId = localStorage.getItem(DEVICE_REQUEST_HEAD_KEY)
-        if (isEmpty(deviceId)) {
-            deviceId = v1().replace(/-/g, '')
-            localStorage.setItem(DEVICE_REQUEST_HEAD_KEY, deviceId)
-        }
-        return deviceId
-    },
     fullScreen: () => {
         const element = document.documentElement;
         if (element.requestFullscreen) {
@@ -136,7 +87,7 @@ export default {
     deviceAndroid() {
         return /Android|Adr/i.test(window.navigator.userAgent)
     },
-    deviceMobile(){
+    deviceMobile() {
         return /Mobile/i.test(window.navigator.userAgent)
     }
 }
