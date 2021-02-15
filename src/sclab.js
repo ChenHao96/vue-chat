@@ -75,10 +75,41 @@ instance.interceptors.request.use(body => {
 export default {
     getDeviceId,
     getDevice: () => {
-
+        return window.navigator.userAgent
     },
     getPlatform: () => {
 
+        let result;
+        if (/Mobile/i.test(window.navigator.userAgent)) {
+            result = 20000
+        } else {
+            result = 10000
+        }
+
+        if (/Mac OS/i.test(window.navigator.userAgent)) {
+            result += 100
+        } else if (/Linux/i.test(window.navigator.userAgent)) {
+            result += 200
+        } else if (/Windows/i.test(window.navigator.userAgent)) {
+            result += 300
+        }
+
+        switch (result) {
+            case 10100:
+                return "Mac"
+            case 10200:
+                return "Linux"
+            case 10300:
+                return "Windows"
+            case 20100:
+                return "IOS"
+            case 20200:
+                return "Android"
+            case 20300:
+                return "Windows Phone"
+            default:
+                return "PC"
+        }
     },
     screenOrientation: (orientation) => {
         // No need to implement
