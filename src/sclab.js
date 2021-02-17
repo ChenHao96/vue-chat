@@ -2,6 +2,7 @@ import {v1} from 'uuid'
 import axios from 'axios'
 
 const DEVICE_REQUEST_HEAD_KEY = "X-Request-Device"
+const ACCOUNT_LOGIN_TOKEN_KEY = "Account-Login-Token"
 
 const isEmpty = (value) => {
     return undefined === value || null === value || 0 === value.length
@@ -111,6 +112,38 @@ export default {
                 return "PC"
         }
     },
+
+    logout: () => {
+        sessionStorage.removeItem(ACCOUNT_LOGIN_TOKEN_KEY)
+        instance.get("/logout").then(_ => {
+        }).catch(_ => {
+        })
+    },
+    login: (param, callback) => {
+        instance.post("/login", param).then(response => {
+            if (response.data.success) {
+                sessionStorage.setItem(ACCOUNT_LOGIN_TOKEN_KEY, response.data.data)
+            }
+            if (undefined !== callback && callback instanceof Function) {
+                callback(response.data)
+            }
+        }).catch(_ => {
+            if (undefined !== callback && callback instanceof Function) {
+                callback({
+                    success: false,
+                    message: '请求异常'
+                })
+            }
+        })
+    },
+    hasLogin: () => {
+        const token = sessionStorage.getItem(ACCOUNT_LOGIN_TOKEN_KEY)
+        return !isEmpty(token)
+    },
+    exit: () => {
+        // No need to implement
+    },
+
     screenOrientation: (orientation) => {
         // No need to implement
     },

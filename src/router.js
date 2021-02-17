@@ -2,7 +2,7 @@ import Vue from 'vue'
 import store from './store'
 import Router from 'vue-router'
 
-import Home from './views/Home.vue'
+import Login from './views/Login.vue'
 import NotFound from './views/NotFound.vue'
 
 Vue.use(Router)
@@ -12,9 +12,19 @@ const routes = [
         path: '/404',
         meta: {
             title: '页面丢失',
-            top: true
+            top: true,
+            auth: false
         },
         component: NotFound
+    },
+    {
+        path: '/login',
+        meta: {
+            title: '登录',
+            top: true,
+            auth: false
+        },
+        component: Login
     },
     {
         path: '/',
@@ -22,7 +32,7 @@ const routes = [
             title: '消息',
             top: true
         },
-        component: Home
+        component:() =>  import('./views/Home')
     },
     {
         path: '/friends',
@@ -89,6 +99,12 @@ const processPathFunc = (function () {
             store.commit("lastRequestPath", from.fullPath)
             if (undefined !== to.meta.top && to.meta.top) {
                 store.commit("clearPath")
+            }
+            if (undefined === to.meta.auth || to.meta.auth) {
+                if (!window.sclab.hasLogin()) {
+                    next({path: '/login'})
+                    return
+                }
             }
             document.title = to.meta.title
             next()

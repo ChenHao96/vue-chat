@@ -36,6 +36,7 @@
 
 <style lang="less">
     @import "../assets/public";
+
     @listItemMarginSide: .6rem;
     .list-item {
 

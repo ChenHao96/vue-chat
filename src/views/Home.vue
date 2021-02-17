@@ -75,9 +75,9 @@
     .head-center {
 
         .nickname {
-            flex: 2;
+            flex: 1.6;
             display: flex;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             align-items: flex-end;
         }
 
