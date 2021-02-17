@@ -44,6 +44,14 @@
         height: @containerHeight;
         width: @containerWidth;
 
+        input{
+            outline: none;
+        }
+
+        label {
+            display: none;
+        }
+
         .container-page {
             display: flex;
             flex-direction: column;

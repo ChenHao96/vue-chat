@@ -50,16 +50,11 @@
         align-items: center;
         justify-content: center;
 
-        label {
-            display: none;
-        }
-
         .head-center {
             margin-right: 10px;
         }
 
         #search-input {
-            outline: none;
             height: 2.8rem;
             padding: 0 15px;
             font-size: 1.3rem;

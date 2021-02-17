@@ -1,6 +1,8 @@
 <template>
-    <div class="button">
-        <div class="text">{{text}}</div>
+    <div class="button-block" ref="buttonBlock">
+        <div class="button" ref="button" :style="styleVar">
+            <div class="text">{{text}}</div>
+        </div>
     </div>
 </template>
 
@@ -11,6 +13,17 @@
             text: {
                 type: String,
                 require: true
+            }
+        },
+        mounted() {
+            const height = this.$refs.buttonBlock.clientHeight
+            this.styleVar["--border-radius"] = height / 2 + 'px'
+        },
+        data() {
+            return {
+                styleVar: {
+                    "--border-radius": "15px"
+                }
             }
         }
     }
@@ -23,14 +36,28 @@
         user-select: none;
         align-items: center;
         justify-content: center;
-        border: 1px silver solid;
+    }
 
-        &:hover {
-            border-color: #a5a3a3;
-        }
+    .button-block {
+        &[border] {
+            .button {
+                border-color: silver;
+                border-style: solid;
 
-        &:active {
-            border-color: silver;
+                @borderWidth: 1px;
+                border-width: @borderWidth;
+                width: calc(100% - @borderWidth * 2);
+                height: calc(100% - @borderWidth * 2);
+                border-radius: var(--border-radius);
+
+                &:hover {
+                    border-color: #a5a3a3;
+                }
+
+                &:active {
+                    border-color: silver;
+                }
+            }
         }
     }
 </style>

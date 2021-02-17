@@ -10,11 +10,11 @@
                 <div><input type="password" id="password"></div>
             </div>
             <div>
-                <div>忘记密码?</div>
-                <div>注册</div>
+                <Button text="忘记密码?"/>
+                <Button text="注册账号"/>
             </div>
             <div>
-                <Button text="登录" style="width: 100px;"/>
+                <Button text="登录" border/>
             </div>
         </div>
     </div>
