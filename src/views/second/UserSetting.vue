@@ -68,12 +68,14 @@
 </script>
 
 <style lang="less" scoped>
+    @import "../../assets/public";
+
     .phone-number {
         color: gray;
     }
 
     .list-item {
-        border-bottom: 1px cornsilk solid;
+        border-bottom: 1px @headBackgroundColor solid;
 
         &:last-child {
             border-bottom: none;

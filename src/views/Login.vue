@@ -2,19 +2,17 @@
     <div class="login">
         <div>
             <div>
-                <label for="username">账号</label>
-                <div><input type="text" placeholder="账号/手机号" id="username"></div>
+                <div><input type="text" placeholder="账号/手机号"></div>
             </div>
             <div>
-                <label for="password">密码</label>
-                <div><input type="password" id="password"></div>
+                <div><input type="password"></div>
             </div>
             <div>
-                <Button text="忘记密码?"/>
-                <Button text="注册账号"/>
+                <cr-button text="忘记密码?"/>
+                <cr-button text="注册账号"/>
             </div>
             <div>
-                <Button text="登录" border/>
+                <cr-button text="登录" border/>
             </div>
         </div>
     </div>
@@ -26,7 +24,7 @@
 
     export default {
         components: {
-            "Button": Button
+            "cr-button": Button
         },
         name: "Login"
     }

@@ -32,7 +32,14 @@ const routes = [
             title: '消息',
             top: true
         },
-        component:() =>  import('./views/Home')
+        component: () => import('./views/Home')
+    },
+    {
+        path: '/chatRoom',
+        meta: {
+            title: '消息'
+        },
+        component: () => import('./views/second/ChatRoom')
     },
     {
         path: '/friends',
@@ -100,12 +107,12 @@ const processPathFunc = (function () {
             if (undefined !== to.meta.top && to.meta.top) {
                 store.commit("clearPath")
             }
-            if (undefined === to.meta.auth || to.meta.auth) {
-                if (!window.sclab.hasLogin()) {
-                    next({path: '/login'})
-                    return
-                }
-            }
+            // if (undefined === to.meta.auth || to.meta.auth) {
+            //     if (!window.sclab.hasLogin()) {
+            //         next({path: '/login'})
+            //         return
+            //     }
+            // }
             document.title = to.meta.title
             next()
         } else {

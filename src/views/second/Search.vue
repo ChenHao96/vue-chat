@@ -10,9 +10,7 @@
                 <div>取消</div>
             </div>
         </div>
-        <chat-body>
-
-        </chat-body>
+        <chat-body/>
     </div>
 </template>
 
@@ -60,7 +58,8 @@
             font-size: 1.3rem;
             border-radius: 15px;
             border: 1px bisque solid;
-            &:focus{
+
+            &:focus {
                 border: 1px sandybrown solid;
             }
         }

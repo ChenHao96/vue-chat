@@ -134,7 +134,7 @@
 
                     color: white;
                     margin: 0 @rightMargin;
-                    background-color: bisque;
+                    background-color: @headBackgroundColor;
                 }
             }
         }
